@@ -1,10 +1,19 @@
 import React from 'react';
 
+
 const QuoteCard = (props) =>
   <div>
     <div className="card card-inverse card-success card-primary mb-3 text-center">
       <div className="card-block">
+        <textarea name="test" content="test quote" />
         <blockquote className="card-blockquote">
+          <textarea name="quote test" content="testing this quote" />
+          <textarea name="author test" content="test author" />
+          <textarea name="author test2" content="authoring this test" />
+
+          {console.log(props)}
+          
+
           {/* <p>{Render Quote Content}</p> */}
           {/* <footer>- author <cite title="Source Title">{Render Quote Author}</cite></footer> */}
         </blockquote>
@@ -31,6 +40,7 @@ const QuoteCard = (props) =>
           </button>
         </div>
         {/* <div>Votes: {Render Quote Votes}</div> */}
+        {console.log(props)}
       </div>
     </div>
   </div>;
