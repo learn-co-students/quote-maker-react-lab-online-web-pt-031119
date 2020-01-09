@@ -1,6 +1,6 @@
 
 
-export default function manageQuote(state = [], action) {
+export default (state = [], action) => {
 
   switch (action.type) {
     case 'ADD_QUOTE':
@@ -15,35 +15,75 @@ export default function manageQuote(state = [], action) {
       ];
 
     case 'REMOVE_QUOTE':
-    let index = state.filter(quote => quote.id !== action.quoteId);
+      let index = state.filter(quote => quote.id !== action.quoteId);
 
-      return index
+        return index
 
 
     case 'UPVOTE_QUOTE':
-
-    return [
-      ...state, {
-        author: action.quote.author,
-        content: action.quote.content,
-        id: action.quote.id,
-        votes: action.quote.votes + 1
-    }]
-
-
-    case 'DOWNVOTE_QUOTE':
-
-    return [
-      ...state, {
-        author: action.quote.author,
-        content: action.quote.content,
-        id: action.quote.id,
-        votes: action.quote.votes - 1
+      return state.map(quote => {
+        if (quote.id === action.quoteId) {
+          return {
+            ...quote,
+            author: quote.author,
+            content: quote.content,
+            id: quote.id,
+            votes: quote.votes + 1
+          }
+        } else {
+            return quote
+        }
       }
-    ]
+  )
+
+
+
+  case 'DOWNVOTE_QUOTE':
+    return state.map(quote => {
+      if (quote.id === action.quoteId && quote.votes > 0) {
+        return {
+          ...quote,
+          author: quote.author,
+          content: quote.content,
+          id: quote.id,
+          votes: quote.votes - 1
+        }
+      } else {
+          return quote
+      }
+    }
+  )
 
   default:
     return state;
   }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// case 'DOWNVOTE_QUOTE':
+//
+//   if (action.quote.votes > 1) {
+//     return [
+//       ...state, {
+//         author: action.quote.author,
+//         content: action.quote.content,
+//         id: action.quote.id,
+//         votes: action.quote.votes - 1
+//       }]
+//     } else {
+//       return state
+//   }

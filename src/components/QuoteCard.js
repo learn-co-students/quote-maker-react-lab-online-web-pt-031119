@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
+
 // import { addQuote } from '../actions/quotes';
 
 
@@ -54,11 +56,12 @@ const QuoteCard = (props) =>
   </div>;
 
   // const mapStateToProps = state => {
+  //   debugger
   //   return {
-  //     author: this.author,
+  //     author: state.author,
   //     content: state.content,
   //     votes: state.votes
   //    }
   // }
 
-export default connect()(QuoteCard);
+export default QuoteCard;

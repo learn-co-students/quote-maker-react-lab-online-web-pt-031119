@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import manageQuote from './quotes';
+import quotes from './quotes';
 
 export default combineReducers({
-  quotes: manageQuote
+  quotes
 });
 
 //combined reducers allow us to manage parts of state one by one

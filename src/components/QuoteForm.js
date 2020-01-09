@@ -43,9 +43,12 @@ handleOnSubmit = event => {
                     <div className="col-md-5">
                       <textarea
                         className="form-control"
+                        name="content"
                         value={this.state.content}
+                        onChange={this.handleOnChange}
                       />
-                    <textarea name="content" onChange={this.handleOnChange} />
+
+
                     </div>
                   </div>
                   <div className="form-group">
