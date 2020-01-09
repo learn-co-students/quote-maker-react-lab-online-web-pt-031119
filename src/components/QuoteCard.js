@@ -1,4 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
+// import { addQuote } from '../actions/quotes';
+
+
 
 
 const QuoteCard = (props) =>
@@ -11,11 +15,13 @@ const QuoteCard = (props) =>
           <textarea name="author test" content="test author" />
           <textarea name="author test2" content="authoring this test" />
 
-          {console.log(props)}
-          
+
+
 
           {/* <p>{Render Quote Content}</p> */}
+          <p>{props.content}</p>
           {/* <footer>- author <cite title="Source Title">{Render Quote Author}</cite></footer> */}
+          <footer> Author: <cite title="Source Title">{props.author}</cite></footer>
         </blockquote>
       </div>
       <div className="float-right">
@@ -40,9 +46,19 @@ const QuoteCard = (props) =>
           </button>
         </div>
         {/* <div>Votes: {Render Quote Votes}</div> */}
+
+        <div className="vote count" content={props.votes}>Votes</div>
         {console.log(props)}
       </div>
     </div>
   </div>;
 
-export default QuoteCard;
+  // const mapStateToProps = state => {
+  //   return {
+  //     author: this.author,
+  //     content: state.content,
+  //     votes: state.votes
+  //    }
+  // }
+
+export default connect()(QuoteCard);

@@ -27,7 +27,6 @@ handleOnSubmit = event => {
     content: '',
     author: ''
   })
-
 }
 
 
@@ -46,7 +45,7 @@ handleOnSubmit = event => {
                         className="form-control"
                         value={this.state.content}
                       />
-                    <textarea name="content" content="test content" />
+                    <textarea name="content" onChange={this.handleOnChange} />
                     </div>
                   </div>
                   <div className="form-group">

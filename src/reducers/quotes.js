@@ -1,54 +1,46 @@
-import uuid from 'uuid';
+
 
 export default function manageQuote(state = [], action) {
 
   switch (action.type) {
     case 'ADD_QUOTE':
 
-      return [{
-        ...state,
-        author: state.author,
-        content: state.content,
-        id: uuid(),
-        votes: 0
-      }];
-
-
+      return [
+        ...state, {
+          author: action.quote.author,
+          content: action.quote.content,
+          id: action.quote.id,
+          votes: action.quote.votes
+        }
+      ];
 
     case 'REMOVE_QUOTE':
-    let index = state.quotes.findIndex(quote => quote.id === action.id);
-      return {
-        ...state,
-        author: state.author,
-        content: state.content,
-        id: uuid(),
-        quotes: [...state.quotes.slice(0, index), ...state.quotes.slice(index + 1)]
-      }
+    let index = state.filter(quote => quote.id !== action.quoteId);
 
+      return index
 
 
     case 'UPVOTE_QUOTE':
 
-    return {
-      ...state,
-      author: state.author,
-      content: state.content,
-      id: uuid(),
-      votes: state.votes + 1
-    }
+    return [
+      ...state, {
+        author: action.quote.author,
+        content: action.quote.content,
+        id: action.quote.id,
+        votes: action.quote.votes + 1
+    }]
 
 
     case 'DOWNVOTE_QUOTE':
 
-    return {
-      ...state,
-      author: state.author,
-      content: state.content,
-      id: uuid(),
-      votes: state.votes - 1
-    }
-  
-
+    return [
+      ...state, {
+        author: action.quote.author,
+        content: action.quote.content,
+        id: action.quote.id,
+        votes: action.quote.votes - 1
+      }
+    ]
 
   default:
     return state;

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-// import Provider from 'react-redux';
-// import createStore, { store } from './store'
 import QuoteForm from './components/QuoteForm';
 import Quotes from './containers/Quotes';
+
 
 class App extends Component {
   render() {
@@ -12,11 +11,7 @@ class App extends Component {
           <h1>Quote Maker</h1>
         </div>
         <hr />
-        {/*
-          TODO:
-
-          Render QuoteForm and Quotes Components
-         */}
+        
         <QuoteForm />
         <Quotes />
 
