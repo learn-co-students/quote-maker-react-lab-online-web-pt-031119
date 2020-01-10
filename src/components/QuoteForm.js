@@ -15,8 +15,7 @@ class QuoteForm extends Component {
 
   handleOnChange = event => {
     this.setState({
-      content: document.querySelectorAll('textarea')[0].value,
-      author: document.querySelectorAll('input')[0].value
+      [event.target.name]: event.target.value
     })
   }
 
@@ -44,7 +43,7 @@ class QuoteForm extends Component {
                       <textarea onChange={this.handleOnChange}
                         className="form-control"
                         value={this.state.content}
-                        id="content"
+                        name="content"
                       />
                     </div>
                   </div>
@@ -55,7 +54,7 @@ class QuoteForm extends Component {
                         className="form-control"
                         type="text"
                         value={this.state.author}
-                        id="author"
+                        name="author"
                       />
                     </div>
                   </div>
