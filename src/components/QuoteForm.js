@@ -8,7 +8,8 @@ class QuoteForm extends Component {
   state = {
     //set up a controlled form with internal state
     content: '',
-     author: ''
+     author: '',
+     votes: 0
   }
 
   handleOnChange = event => {
@@ -20,6 +21,7 @@ class QuoteForm extends Component {
 
 
 handleOnSubmit = event => {
+
   event.preventDefault();
   const quote = {...this.state, id: uuid() };
   this.props.addQuote(quote);

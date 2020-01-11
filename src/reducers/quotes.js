@@ -25,10 +25,10 @@ export default (state = [], action) => {
         if (quote.id === action.quoteId) {
           return {
             ...quote,
-            author: quote.author,
-            content: quote.content,
-            id: quote.id,
-            votes: quote.votes + 1
+            // author: quote.author,
+            // content: quote.content,
+            // id: quote.id,
+            votes: quote.votes += 1
           }
         } else {
             return quote
@@ -43,10 +43,10 @@ export default (state = [], action) => {
       if (quote.id === action.quoteId && quote.votes > 0) {
         return {
           ...quote,
-          author: quote.author,
-          content: quote.content,
-          id: quote.id,
-          votes: quote.votes - 1
+          // author: quote.author,
+          // content: quote.content,
+          // id: quote.id,
+          votes: quote.votes -= 1
         }
       } else {
           return quote
@@ -59,31 +59,3 @@ export default (state = [], action) => {
   }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// case 'DOWNVOTE_QUOTE':
-//
-//   if (action.quote.votes > 1) {
-//     return [
-//       ...state, {
-//         author: action.quote.author,
-//         content: action.quote.content,
-//         id: action.quote.id,
-//         votes: action.quote.votes - 1
-//       }]
-//     } else {
-//       return state
-//   }
