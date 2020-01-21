@@ -15,6 +15,7 @@ class Quotes extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-4">
+              {/* <QuoteCard quote={this.props.quote}/> */}
               {/*
                 TODO:
 
@@ -28,5 +29,11 @@ class Quotes extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    quote: state.quote
+  }
+}
+
 //add arguments to connect as needed
-export default connect()(Quotes);
+export default connect(mapStateToProps)(Quotes);
