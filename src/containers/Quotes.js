@@ -7,6 +7,10 @@ class Quotes extends Component {
   
 
   render() {
+    const renderQuote = this.props.quotes.map(quote => {
+      return(<QuoteCard quote={quote} removeQuote={this.props.removeQuote} upvoteQuote={this.props.upvoteQuote} downvoteQuote={this.props.downvoteQuote}/>)
+    })
+
     return (
       <div>
         <hr />
@@ -26,10 +30,6 @@ class Quotes extends Component {
   }
   
 }
-
-const renderQuote = this.props.quotes.map(quote => {
-  return(<QuoteCard quote={quote} removeQuote={this.props.removeQuote} upvoteQuote={this.props.upvoteQuote} downvoteQuote={this.props.downvoteQuote}/>)
-})
 
 const mapStateToProps = (state) => {
   // state: { quotes: [ { content: 'Gently', author: 'Wesley', votes: 1, id: 1 } ] }
