@@ -4,6 +4,7 @@ import QuoteCard from '../components/QuoteCard';
 import {removeQuote, upvoteQuote, downvoteQuote} from '../actions/quotes';
 
 class Quotes extends Component {
+  
 
   render() {
     return (
@@ -16,16 +17,19 @@ class Quotes extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-4">
-              {this.props.quotes.map(quote => {
-                <QuoteCard quote={quote} removeQuote={this.props.removeQuote} upvoteQuote={this.props.upvoteQuote} downvoteQuote={this.props.downvoteQuote}/>
-              })}
+              {renderQuote}
             </div>
           </div>
         </div>
       </div>
     );
   }
+  
 }
+
+const renderQuote = this.props.quotes.map(quote => {
+  return(<QuoteCard quote={quote} removeQuote={this.props.removeQuote} upvoteQuote={this.props.upvoteQuote} downvoteQuote={this.props.downvoteQuote}/>)
+})
 
 const mapStateToProps = (state) => {
   // state: { quotes: [ { content: 'Gently', author: 'Wesley', votes: 1, id: 1 } ] }
